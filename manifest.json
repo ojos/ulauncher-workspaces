@@ -3,7 +3,7 @@
   "name": "Workspaces",
   "description": "Provides an easy way to launch with different workspaces",
   "developer_name": "Ido <ido+ulauncher@ojos.jp>",
-  "icon": "images/icon.svg",
+  "icon": "images/icon.png",
   "options": {
     "query_debounce": 0.1
   },

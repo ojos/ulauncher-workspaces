@@ -54,7 +54,7 @@ class KeywordQueryEventListener(EventListener):
         entries = []
         for ws in workspaces:
             entries.append(ExtensionResultItem(
-                icon='images/icon.svg',
+                icon='images/icon.png',
                 name=ws,
                 description=ws,
                 on_enter=ExtensionCustomAction({
