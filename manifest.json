@@ -1,0 +1,33 @@
+{
+  "required_api_version": "^2.0.0",
+  "name": "Workspaces",
+  "description": "Provides an easy way to launch with different workspaces",
+  "developer_name": "Ido <ido+ulauncher@ojos.jp>",
+  "icon": "images/icon.svg",
+  "options": {
+    "query_debounce": 0.1
+  },
+  "preferences": [
+    {
+      "id": "keyword",
+      "type": "keyword",
+      "name": "Workspaces",
+      "description": "Keyword to invoke this extension",
+      "default_value": "ws"
+    },
+    {
+      "id": "workspace_root_folder",
+      "type": "input",
+      "name": "Workspace Root Folder",
+      "description": "Select the workspace root folder, which contains all workspaces.",
+      "default_value": "~/Workspaces"
+    },
+    {
+      "id": "open_cmd",
+      "type": "input",
+      "name": "'Open Workspace' Executable",
+      "description": "Insert the executable name for Application.",
+      "default_value": "code"
+    }
+  ]
+}
