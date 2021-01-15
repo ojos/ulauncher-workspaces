@@ -1,6 +1,7 @@
 # ulauncher-workspaces
 
-> [Ulauncher](https://ulauncher.io) extension for launching Google Chrome using a chosen user profile.
+> [Ulauncher](https://ulauncher.io) extension for Opening a chosen workspace.
+
 
 ## Screenshot
 
