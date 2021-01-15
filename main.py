@@ -11,9 +11,9 @@ from ulauncher.api.shared.event import ItemEnterEvent, KeywordQueryEvent
 from ulauncher.api.shared.item.ExtensionResultItem import ExtensionResultItem
 
 
-def scan_workspaces(workspace_root_folder):
+def scan_workspaces(workspaces_root):
     workspaces = [
-        ws for ws in os.listdir(workspace_root_folder) if os.path.isdir(os.path.join(workspace_root_folder, ws))
+        ws for ws in os.listdir(workspaces_root) if os.path.isdir(os.path.join(workspaces_root, ws))
     ]
 
     return workspaces
@@ -28,8 +28,8 @@ class DemoExtension(Extension):
 
 class KeywordQueryEventListener(EventListener):
     def on_event(self, event, extension):
-        workspace_root_folder = os.path.expanduser(extension.preferences['workspace_root_folder'])
-        workspaces = scan_workspaces(workspace_root_folder)
+        workspaces_root = os.path.expanduser(extension.preferences['workspaces_root'])
+        workspaces = scan_workspaces(workspaces_root)
 
         # Filter by query if inserted
         query = event.get_argument()
@@ -40,16 +40,6 @@ class KeywordQueryEventListener(EventListener):
                 if query not in name:
                     workspaces.pop(ws)
 
-
-        # # Filter by query if inserted
-        # query = event.get_argument()
-        # if query:
-        #     query = query.strip().lower()
-        #     for folder in list(profiles.keys()):
-        #         name = profiles[folder]['name'].lower()
-        #         if query not in name:
-        #             profiles.pop(folder)
-
         # Create launcher entries
         entries = []
         for ws in workspaces:
@@ -59,7 +49,7 @@ class KeywordQueryEventListener(EventListener):
                 description=ws,
                 on_enter=ExtensionCustomAction({
                     'open_cmd': extension.preferences['open_cmd'],
-                    'opt': [os.path.join(workspace_root_folder, ws)]
+                    'opt': [os.path.join(workspaces_root, ws)]
                 }, keep_app_open=True)
             ))
         return RenderResultListAction(entries)
