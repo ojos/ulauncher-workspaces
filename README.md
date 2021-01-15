@@ -34,4 +34,4 @@ https://github.com/ojos/ulauncher-workspaces
 
 ## License
 
-MIT &copy; [Ido
+MIT &copy; [Ido]
